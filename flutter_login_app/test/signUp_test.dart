@@ -10,26 +10,24 @@ void main() {
     testWidgets('UI elements are rendered', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(home: SignUpScreen()));
 
-      // Verify that the username, email, and password text fields are rendered
       expect(find.byType(TextField), findsNWidgets(3));
 
-      // Verify that the sign-up button is rendered
       expect(find.text('Sign Up'), findsOneWidget);
     });
 
     testWidgets('Successful sign-up navigates to home screen', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(home: SignUpScreen()));
 
-      // Fill in username, email, and password
+ 
       await tester.enterText(find.byKey(Key('usernameTextField')), 'testuser');
       await tester.enterText(find.byKey(Key('emailTextField')), 'test@example.com');
       await tester.enterText(find.byKey(Key('passwordTextField')), 'password');
 
-      // Tap the sign-up button
+
       await tester.tap(find.text('Sign Up'));
       await tester.pumpAndSettle();
 
-      // Verify that navigation occurred
+ 
       expect(find.byType(HomeScreen), findsOneWidget);
     });
   });

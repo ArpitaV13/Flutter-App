@@ -15,30 +15,28 @@ class MockUser extends Fake implements User {
 void main() {
   group('HomeScreen widget test', () {
     testWidgets('User email is displayed correctly', (WidgetTester tester) async {
-      // Mock user data
       final mockUser = MockUser();
 
-      // Mock FirebaseAuth
+
       final mockFirebaseAuth = MockFirebaseAuth(mockUser);
       await tester.pumpWidget(MaterialApp(home: HomeScreen()));
 
-      // Verify that the user's email is displayed correctly
+
       expect(find.text('test@example.com'), findsOneWidget);
     });
 
     testWidgets('Logout button works correctly', (WidgetTester tester) async {
-      // Mock user data
+
       final mockUser = MockUser();
 
-      // Mock FirebaseAuth
+
       final mockFirebaseAuth = MockFirebaseAuth(mockUser);
       await tester.pumpWidget(MaterialApp(home: HomeScreen()));
 
-      // Tap the logout button
       await tester.tap(find.text('Logout'));
       await tester.pumpAndSettle();
 
-      // Verify that the user is navigated to the SignInScreen after logout
+
       expect(find.byType(SignInScreen), findsOneWidget);
     });
   });
