@@ -38,12 +38,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 20,
                 ),
                 reusableTextField("Enter UserName", false,
-                    _userNameTextController),
+                    _userNameTextController, key: Key('usernameTextField')),
                 const SizedBox(
                   height: 20,
                 ),
                 reusableTextField("Enter Email Id",  false,
-                    _emailTextController),
+                    _emailTextController,key: Key('passwordTextField')),
                 const SizedBox(
                   height: 20,
                 ),

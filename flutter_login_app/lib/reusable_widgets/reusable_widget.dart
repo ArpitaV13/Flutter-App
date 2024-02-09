@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 
 TextField reusableTextField(String text, bool isPasswordType,
-    TextEditingController controller) {
+    TextEditingController controller, {Key? key}) {
   return TextField(
     controller: controller,
     obscureText: isPasswordType,
+    key: key,
     cursorColor: Colors.black,
     style: TextStyle(color: Colors.black),
     decoration: InputDecoration(

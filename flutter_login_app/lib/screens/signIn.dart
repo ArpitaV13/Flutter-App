@@ -28,12 +28,12 @@ class _SignInScreenState extends State<SignInScreen> {
             child: Column(
               children: <Widget>[
                 reusableTextField(
-                    "Enter UserName", false, _emailTextController),
+                    "Enter UserName", false, _emailTextController, key:Key('usernameTextField')),
                 const SizedBox(
                   height: 20,
                 ),
                 reusableTextField(
-                    "Enter Password", true, _passwordTextController),
+                    "Enter Password", true, _passwordTextController, key:Key('passwordTextField')),
                 const SizedBox(
                   height: 5,
                 ),
