@@ -1,30 +1,55 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
+// import 'package:flutter/material.dart';
+// import 'package:flutter_test/flutter_test.dart';
+// import 'package:flutter_login_app/main.dart';
+// import 'package:flutter_login_app/screens/signIn.dart';
+// import 'package:flutter_login_app/screens/signUp.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:mockito/mockito.dart';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
+// void main() {
+//   // Define a mock FirebaseAuth instance
+//   late MockFirebaseAuth mockFirebaseAuth;
 
-import 'package:flutter_login_app/main.dart';
+//   setUp(() {
+//     // Initialize the mockFirebaseAuth instance before each test
+//     mockFirebaseAuth = MockFirebaseAuth();
+//     // Mock the behavior of signInWithEmailAndPassword method
+//     when(mockFirebaseAuth.signInWithEmailAndPassword(
+//       email: anyNamed('email'),
+//       password: anyNamed('password'),
+//     )).thenAnswer((_) => Future.value(UserCredential(user: MockUser())));
+//   });
 
-void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+//   testWidgets('Test Sign In Screen', (WidgetTester tester) async {
+//     // Build SignInScreen widget
+//     await tester.pumpWidget(
+//       MaterialApp(
+//         home: SignInScreen(firebaseAuth: mockFirebaseAuth), // Inject mockFirebaseAuth
+//       ),
+//     );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+//     // Verify that the 'Enter UserName' and 'Enter Password' texts are found
+//     expect(find.text('Enter UserName'), findsOneWidget);
+//     expect(find.text('Enter Password'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+//     // Simulate tapping the 'Sign In' button
+//     await tester.tap(find.text('Sign In'));
+//     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
-}
+//     // Verify that the "Don't have an account?" text is found
+//     expect(find.text("Don't have an account?"), findsOneWidget);
+
+//     // Simulate tapping the 'Sign Up' button
+//     await tester.tap(find.text('Sign Up'));
+//     await tester.pump();
+
+//     // Verify that the SignUpScreen widget is found
+//     expect(find.byType(SignUpScreen), findsOneWidget);
+//   });
+// }
+
+// // Define a mock class that extends FirebaseAuth
+// class MockFirebaseAuth extends Mock implements FirebaseAuth {}
+
+// // Define a mock class that extends User
+// class MockUser extends Mock implements User {}
