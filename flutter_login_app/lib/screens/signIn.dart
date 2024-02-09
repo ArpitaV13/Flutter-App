@@ -58,25 +58,28 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  Row signUpOption() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          "Don't have an account?",
-          style: TextStyle(color: Colors.black),
+ Row signUpOption() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Text(
+        "Don't have an account?",
+        style: TextStyle(color: Colors.black),
+      ),
+      TextButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SignUpScreen()),
+          );
+        },
+        child: Text(
+          " Sign Up",
+          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
         ),
-        GestureDetector(
-          onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SignUpScreen()));
-          },
-          child: Text(
-            " Sign Up",
-            style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
-          ),
-        )
-      ],
-    );
-  }
+      )
+    ],
+  );
+}
+
 }
